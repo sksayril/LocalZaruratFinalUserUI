@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 const categories = [
   { name: 'Restaurants', icon: 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png' },
   { name: 'Hotels', icon: 'https://cdn-icons-png.flaticon.com/512/235/235861.png' },
@@ -28,8 +30,9 @@ export default function CategoryGrid() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-10 gap-6">
         {categories.map((category, index) => (
-          <div
+          <Link
             key={index}
+            href={`/${category.name.toLowerCase().replace(/\s|&|\//g, '').replace('weddingplanning', 'wedding').replace('pg/hostels', 'pghostels').replace('eventorganisers', 'eventorganisers')}`}
             className={`flex flex-col items-center p-4 rounded-2xl border bg-white shadow-sm cursor-pointer transition-all duration-200 ${category.special ? 'border-pink-300 relative' : ''} ${category.popular ? 'border-2 border-blue-600' : ''}`}
           >
             {/* Icon */}
@@ -51,7 +54,7 @@ export default function CategoryGrid() {
             <span className="text-base text-center font-semibold text-gray-800 mt-1">
               {category.name}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
