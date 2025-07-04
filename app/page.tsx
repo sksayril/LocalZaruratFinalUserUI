@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ServiceCategories from '@/components/ServiceCategories';
-import CategoryGrid from '@/components/CategoryGrid';
-import ServiceSections from '@/components/ServiceSections';
-import TravelSection from '@/components/TravelSection';
-import TrendingSection from '@/components/TrendingSection';
-import MoviesSection from '@/components/MoviesSection';
-import TouristPlacesSection from '@/components/TouristPlacesSection';
-import PopularSearchesSection from '@/components/PopularSearchesSection';
-import RainyDaySection from '@/components/RainyDaySection';
-import RecentActivitySection from '@/components/RecentActivitySection';
-import RelatedArticlesSection from '@/components/RelatedArticlesSection';
-import AboutSection from '@/components/AboutSection';
-import Footer from '@/components/Footer';
+import Header from '@/components/Categories_components/Header';
+import HeroSection from '@/components/Categories_components/HeroSection';
+import ServiceCategories from '@/components/Categories_components/ServiceCategories';
+import CategoryGrid from '@/components/Categories_components/CategoryGrid';
+import ServiceSections from '@/components/Categories_components/ServiceSections';
+import TravelSection from '@/components/Categories_components/TravelSection';
+import TrendingSection from '@/components/Categories_components/TrendingSection';
+import MoviesSection from '@/components/Categories_components/MoviesSection';
+import TouristPlacesSection from '@/components/Categories_components/TouristPlacesSection';
+import PopularSearchesSection from '@/components/Categories_components/PopularSearchesSection';
+import RainyDaySection from '@/components/Categories_components/RainyDaySection';
+import RecentActivitySection from '@/components/Categories_components/RecentActivitySection';
+import RelatedArticlesSection from '@/components/Categories_components/RelatedArticlesSection';
+import AboutSection from '@/components/Categories_components/AboutSection';
+import Footer from '@/components/Categories_components/Footer';
 
 export const metadata: Metadata = {
   title: 'Local Zarurat - Your One-Stop Destination for Local Services',
