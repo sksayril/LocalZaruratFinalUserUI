@@ -1,5 +1,3 @@
-'use client';
-
 import WeddingPlanningSection from '@/components/Categories_components/WeddingPlanningSection';
 import OptimizedSection from '@/components/Categories_components/OptimizedSection';
 import { Metadata } from 'next';
@@ -15,4 +13,4 @@ export default function WeddingPlanningPage() {
       <WeddingPlanningSection />
     </OptimizedSection>
   );
-} 
+}
