@@ -9,8 +9,8 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Search Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-6 text-left">
-            Search across <span className="text-blue-600">‘4.7 Crore+‘</span> <span className="text-blue-600">Businesses</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-left leading-tight">
+            Search across <span className="text-blue-600">'4.7 Crore+'</span> <span className="text-blue-600">Businesses</span>
           </h1>
           <div className="flex items-center w-full">
             <div className="flex-1 flex items-center gap-4">
@@ -22,8 +22,7 @@ export default function HeroSection() {
                   <input
                     type="text"
                     placeholder="Mumbai"
-                    className="bg-transparent outline-none text-gray-700 w-full placeholder-gray-500"
-                    style={{fontWeight: 500}}
+                    className="bg-transparent outline-none text-gray-700 w-full placeholder-gray-500 font-medium text-base"
                   />
                 </div>
                 {/* Search Input */}
@@ -31,8 +30,7 @@ export default function HeroSection() {
                   <input
                     type="text"
                     placeholder="Search for Packers and Movers"
-                    className="bg-transparent outline-none text-gray-700 w-full placeholder-gray-500"
-                    style={{fontWeight: 500}}
+                    className="bg-transparent outline-none text-gray-700 w-full placeholder-gray-500 font-medium text-base"
                   />
                   {/* Mic Icon */}
                   <Mic className="w-5 h-5 text-blue-500 mr-2" style={{stroke: '#2196f3', fill: '#fff', background: 'linear-gradient(180deg, #2196f3 60%, #ff9800 100%)', borderRadius: '50%'}} />
@@ -45,7 +43,7 @@ export default function HeroSection() {
             </div>
             {/* Download App Button */}
             <button className="flex items-center border border-gray-300 px-4 py-3 rounded-lg bg-white hover:bg-gray-100 min-w-[160px] justify-between ml-4">
-              <span className="font-medium text-gray-800">Download App</span>
+              <span className="font-semibold text-gray-800 text-base">Download App</span>
               <Download className="w-5 h-5 text-blue-600 ml-2" />
               <ChevronDown className="w-4 h-4 text-gray-500 ml-1" />
             </button>
@@ -57,11 +55,11 @@ export default function HeroSection() {
           {/* Left Banner */}
           <div className="flex-shrink-0 bg-[#2563eb] rounded-2xl flex flex-col justify-between p-8 min-h-[260px] w-[460px] text-white relative" style={{background: 'linear-gradient(90deg, #2563eb 60%, #2563eb 100%)'}}>
             <div>
-              <div className="text-3xl font-extrabold mb-2">Grow your business<br/>on Justdial</div>
+              <div className="text-3xl md:text-4xl font-extrabold mb-2 leading-tight">Grow your business<br/>on Justdial</div>
               <ul className="mb-6 mt-4 space-y-2">
-                <li className="flex items-center gap-2"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Get noticed</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Boost sales</li>
-                <li className="flex items-center gap-2"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Increase revenue</li>
+                <li className="flex items-center gap-2 text-base font-medium"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Get noticed</li>
+                <li className="flex items-center gap-2 text-base font-medium"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Boost sales</li>
+                <li className="flex items-center gap-2 text-base font-medium"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Increase revenue</li>
               </ul>
               <button className="bg-green-400 hover:bg-green-500 text-black font-bold px-8 py-3 rounded-lg text-lg shadow w-max">Start Now</button>
             </div>
@@ -77,29 +75,29 @@ export default function HeroSection() {
           <div className="flex flex-row gap-4">
             {/* B2B */}
             <div className="bg-[#1e7ed6] rounded-2xl p-6 text-white flex flex-col justify-between min-h-[260px] w-[240px] relative overflow-hidden">
-              <div className="font-extrabold text-xl mb-1">B2B</div>
-              <div className="text-md mb-2">Quick Quotes</div>
+              <div className="font-extrabold text-2xl mb-1">B2B</div>
+              <div className="text-base font-medium mb-2">Quick Quotes</div>
               <img src="https://assets.jdmagicbox.com/comp/jd_new_cms/jd_homepage/b2b-man.png" alt="B2B" className="absolute bottom-2 right-2 h-28 w-28 object-contain" />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl font-bold opacity-80">›</span>
             </div>
             {/* Repairs & Services */}
             <div className="bg-[#2b4fa2] rounded-2xl p-6 text-white flex flex-col justify-between min-h-[260px] w-[240px] relative overflow-hidden">
               <div className="font-extrabold text-xl mb-1">REPAIRS & SERVICES</div>
-              <div className="text-md mb-2">Get Nearest Vendor</div>
+              <div className="text-base font-medium mb-2">Get Nearest Vendor</div>
               <img src="https://assets.jdmagicbox.com/comp/jd_new_cms/jd_homepage/repairs-man.png" alt="Repairs" className="absolute bottom-2 right-2 h-28 w-28 object-contain" />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl font-bold opacity-80">›</span>
             </div>
             {/* Real Estate */}
             <div className="bg-[#5a6ee0] rounded-2xl p-6 text-white flex flex-col justify-between min-h-[260px] w-[240px] relative overflow-hidden">
               <div className="font-extrabold text-xl mb-1">REAL ESTATE</div>
-              <div className="text-md mb-2">Finest Agents</div>
+              <div className="text-base font-medium mb-2">Finest Agents</div>
               <img src="https://assets.jdmagicbox.com/comp/jd_new_cms/jd_homepage/realestate-building.png" alt="Real Estate" className="absolute bottom-2 right-2 h-28 w-28 object-contain" />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl font-bold opacity-80">›</span>
             </div>
             {/* Doctors */}
             {/* <div className="bg-[#1bb18a] rounded-2xl p-6 text-white flex flex-col justify-between min-h-[260px] w-[240px] relative overflow-hidden">
               <div className="font-extrabold text-xl mb-1">DOCTORS</div>
-              <div className="text-md mb-2">Book Now</div>
+              <div className="text-base font-medium mb-2">Book Now</div>
               <img src="https://assets.jdmagicbox.com/comp/jd_new_cms/jd_homepage/doctor-woman.png" alt="Doctors" className="absolute bottom-2 right-2 h-28 w-28 object-contain" />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl font-bold opacity-80">›</span>
             </div> */}

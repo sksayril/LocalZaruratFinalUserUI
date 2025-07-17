@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { restaurantsMockData, Restaurant } from '../../mockData';
 import Link from 'next/link';
