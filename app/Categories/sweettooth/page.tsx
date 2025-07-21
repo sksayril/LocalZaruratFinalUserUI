@@ -4,7 +4,7 @@ import FoodCategories from '@/components/Categories_components/FoodCategories';
 import SweetToothSection from '@/components/Categories_components/SweetToothSection';
 
 export const metadata: Metadata = {
-  title: 'Sweet Tooth | JustDial',
+  title: 'Sweet Tooth | LocalZarurat',
   description: 'Find desserts and sweet treats near you. Browse cake shops, ice cream parlors, and confectioneries.',
 };
 

@@ -82,7 +82,7 @@ export default function SubcategoriesSection({ mainCategoryId, mainCategoryName 
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img 
-                    src={subcategory.icon} 
+                    src={subcategory.image} 
                     alt={subcategory.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />

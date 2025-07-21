@@ -6,12 +6,12 @@ const services = [
   {
     icon: Building2,
     title: 'B2B',
-    description: 'Experience the ultimate B2B portal by Justdial. You can explore countless diverse categories, innumerable top-quality vendors, and an unmatched wholesale experience. You\'ll find everything you need for B2B requirements on this exclusive platform. Our interactive interface allows you to apply relevant filters, ascertain the best rates, and get instant assistance via chat.'
+    description: 'Experience the ultimate B2B portal by LocalZarurat. You can explore countless diverse categories, innumerable top-quality vendors, and an unmatched wholesale experience. You\'ll find everything you need for B2B requirements on this exclusive platform. Our interactive interface allows you to apply relevant filters, ascertain the best rates, and get instant assistance via chat.'
   },
   {
     icon: Globe,
     title: 'All India',
-    description: 'Elevate your search for B2B requisites. From lead generation to promoting and selling products/services, Justdial enables enterprises to reach vast audiences all across India through digital strategies. Justdial India encompasses manufacturers, dealers, suppliers, vendors, wholesalers, and more, offering convenience in the B2B market space and empowering businesses nationwide.'
+    description: 'Elevate your search for B2B requisites. From lead generation to promoting and selling products/services, LocalZarurat enables enterprises to reach vast audiences all across India through digital strategies. LocalZarurat India encompasses manufacturers, dealers, suppliers, vendors, wholesalers, and more, offering convenience in the B2B market space and empowering businesses nationwide.'
   },
   {
     icon: Package,
@@ -21,7 +21,7 @@ const services = [
   {
     icon: Utensils,
     title: 'Order Food Online',
-    description: 'You are just three clicks away from placing an order and exploring a wide range of exotic cuisines. Order food online with Justdial and get your favourite food delivered at your doorstep. Search for restaurants, view reviews and ratings, avail discounts and order your food.'
+    description: 'You are just three clicks away from placing an order and exploring a wide range of exotic cuisines. Order food online with LocalZarurat and get your favourite food delivered at your doorstep. Search for restaurants, view reviews and ratings, avail discounts and order your food.'
   }
 ];
 
@@ -35,7 +35,7 @@ export default function AboutSection() {
         
         <div className="space-y-6 text-gray-600 leading-relaxed">
           <p>
-            Welcome to Justdial, your 'one stop shop' where you are assisted with day-to-day and exclusive planning and purchasing activities. We take pride in our iconic customer support number, 8888888888 and the fact that we own a strong hold on local business information pan India.
+            Welcome to LocalZarurat, your 'one stop shop' where you are assisted with day-to-day and exclusive planning and purchasing activities. We take pride in our iconic customer support number, 8888888888 and the fact that we own a strong hold on local business information pan India.
           </p>
           
           <p>

@@ -55,7 +55,7 @@ export default function HeroSection() {
           {/* Left Banner */}
           <div className="flex-shrink-0 bg-[#2563eb] rounded-2xl flex flex-col justify-between p-8 min-h-[260px] w-[460px] text-white relative" style={{background: 'linear-gradient(90deg, #2563eb 60%, #2563eb 100%)'}}>
             <div>
-              <div className="text-3xl md:text-4xl font-extrabold mb-2 leading-tight">Grow your business<br/>on Justdial</div>
+              <div className="text-3xl md:text-4xl font-extrabold mb-2 leading-tight">Grow your business<br/>on LocalZarurat</div>
               <ul className="mb-6 mt-4 space-y-2">
                 <li className="flex items-center gap-2 text-base font-medium"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Get noticed</li>
                 <li className="flex items-center gap-2 text-base font-medium"><span className="w-2 h-2 bg-yellow-400 rounded-full inline-block"></span>Boost sales</li>

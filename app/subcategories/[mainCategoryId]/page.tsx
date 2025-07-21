@@ -70,6 +70,7 @@ export async function generateStaticParams() {
     }));
   } catch (error) {
     console.error('Error generating static params:', error);
+    // Return empty array as fallback to prevent build failure
     return [];
   }
 } 
