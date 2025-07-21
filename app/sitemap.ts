@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
+import { fetchCategories } from '@/lib/api'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://localzarurat.com'
   
   // List all your static routes
-  const routes = [
+  const staticRoutes = [
     '',
     '/wedding',
     '/beautyspa',
@@ -34,5 +35,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  return routes
+  // Add dynamic subcategory routes
+  let subcategoryRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const categories = await fetchCategories();
+    subcategoryRoutes = categories.map((category) => ({
+      url: `${baseUrl}/subcategories/${category._id}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'daily' as const,
+      priority: 0.7,
+    }));
+  } catch (error) {
+    console.error('Error fetching categories for sitemap:', error);
+  }
+
+  return [...staticRoutes, ...subcategoryRoutes];
 } 

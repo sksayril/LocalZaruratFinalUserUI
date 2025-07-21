@@ -2,8 +2,10 @@
 
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { useCategories } from '@/hooks/useCategories';
 
-const categories = [
+// Fallback categories for featured services
+const fallbackCategories = [
   {
     title: 'WEDDING PLANNING',
     subtitle: 'Plan Your Big Day',
@@ -41,11 +43,46 @@ const categories = [
   }
 ];
 
+const colorClasses = [
+  'bg-pink-600',
+  'bg-blue-600', 
+  'bg-blue-700',
+  'bg-purple-600',
+  'bg-green-600'
+];
+
 export default function ServiceCategories() {
+  const { categories, loading, error } = useCategories();
+
+  // Use first 5 API categories or fallback to static data
+  const displayCategories = categories.length > 0 
+    ? categories.slice(0, 5).map((category, index) => ({
+        title: category.name.toUpperCase(),
+        subtitle: `${category.vendorCount} Vendors`,
+        color: colorClasses[index % colorClasses.length],
+        image: category.icon,
+        link: `/subcategories/${category._id}`
+      }))
+    : fallbackCategories;
   return (
     <section className="max-w-7xl mx-auto px-4 py-12">
+      {/* Loading state */}
+      {loading && (
+        <div className="text-center py-8">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <p className="mt-2 text-gray-600">Loading featured services...</p>
+        </div>
+      )}
+
+      {/* Error state */}
+      {error && (
+        <div className="text-center py-8">
+          <p className="text-red-600">Failed to load featured services. Using fallback data.</p>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        {categories.map((category, idx) => (
+        {displayCategories.map((category, idx) => (
           <Link 
             key={idx} 
             href={category.link}

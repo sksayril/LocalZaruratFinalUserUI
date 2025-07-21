@@ -1,8 +1,5 @@
 import React from 'react';
-import { useParams } from 'next/navigation';
 import { restaurantsMockData, Restaurant } from '../mockData';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Phone, ShoppingCart, Calendar, MessageCircle, Share2, Edit3, Star, MapPin, Clock, DollarSign, Bookmark, Plus, Camera } from 'lucide-react';
 
 function slugify(name: string) {
@@ -26,6 +23,9 @@ export default function RestaurantDetailPage({ params }: { params: { restaurant:
   const { restaurant } = params;
   const data = getRestaurantBySlug(restaurant);
 
+  // For static export, we'll use a default active tab
+  const activeTab: string = 'overview';
+
   if (!data) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
@@ -36,6 +36,43 @@ export default function RestaurantDetailPage({ params }: { params: { restaurant:
       </div>
     );
   }
+
+  // Example product data for the Product tab
+  const productData = [
+    {
+      id: 1,
+      name: 'Butter Chicken',
+      description: 'Creamy, rich butter chicken with tender pieces of chicken in a tomato-based sauce',
+      price: '₹450',
+      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300&h=200&fit=crop',
+    },
+    // ... add more products as needed ...
+  ];
+
+  // Render content based on active tab
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'product':
+        return (
+          <div className="py-8">
+            <h2 className="text-2xl font-bold mb-6">Our Popular Products</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {productData.map(product => (
+                <div key={product.id} className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
+                  <img src={product.image} alt={product.name} className="w-32 h-24 object-cover rounded-lg mb-4" />
+                  <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{product.description}</p>
+                  <span className="font-bold text-blue-600">{product.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      // ... add cases for other tabs if needed ...
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -202,26 +239,29 @@ export default function RestaurantDetailPage({ params }: { params: { restaurant:
         </div>
         </div>
 
-        {/* Premium Tabs */}
+        {/* Premium Tabs - Static version for export */}
         <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-4 mb-8 overflow-hidden">
           <div className="flex gap-3">
-          {tabs.map(tab => (
-            <button
-              key={tab.value}
+            {tabs.map(tab => (
+              <div
+                key={tab.value}
                 className={`flex-1 py-4 px-6 rounded-2xl font-bold transition-all duration-300 relative overflow-hidden ${
-                  tab.value === 'overview' 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg transform scale-105' 
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
+                  activeTab === tab.value
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg transform scale-105'
+                    : 'text-gray-600 border border-gray-200'
                 }`}
               >
-                {tab.value === 'overview' && (
+                {activeTab === tab.value && (
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
                 )}
                 <span className="relative z-10">{tab.label}</span>
-            </button>
-          ))}
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Tab Content */}
+        {renderTabContent()}
 
         {/* Premium Content Sections */}
         <div className="flex flex-col lg:flex-row gap-8">
