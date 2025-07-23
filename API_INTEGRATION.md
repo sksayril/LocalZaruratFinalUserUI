@@ -4,12 +4,12 @@
 The Local Zarurat application now integrates with an external API to fetch dynamic category data. The integration is designed to be robust with fallback mechanisms.
 
 ## API Endpoints
-- **Base URL**: `https://7cvccltb-3110.inc1.devtunnels.ms/api`
+- **Base URL**: `https://api.localzarurat.com/api`
 - **Categories Endpoint**: `/customer/categories`
-- **Subcategories Endpoint**: `/categories/:mainCategoryId/subcategories`
+- **Subcategories Endpoint**: `/customer/categories/:mainCategoryId/subcategories`
 - **Full URLs**: 
-  - Categories: `https://7cvccltb-3110.inc1.devtunnels.ms/api/customer/categories`
-  - Subcategories: `https://7cvccltb-3110.inc1.devtunnels.ms/api/categories/{mainCategoryId}/subcategories`
+  - Categories: `https://api.localzarurat.com/api/customer/categories`
+  - Subcategories: `https://api.localzarurat.com/api/customer/categories/{mainCategoryId}/subcategories`
 
 ## Files Created/Modified
 

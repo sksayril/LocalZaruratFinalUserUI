@@ -23,8 +23,8 @@ export async function fetchCategories(): Promise<Category[]> {
       headers: {
         'Content-Type': 'application/json',
       },
-      // Add cache control for better performance
-      next: { revalidate: 3600 }, // Revalidate every hour
+      // Temporarily disable cache for testing
+      next: { revalidate: 0 }, // No cache - fetch fresh data
     });
 
     if (!response.ok) {
@@ -62,6 +62,12 @@ export interface Subcategory {
 
 export async function fetchSubcategories(mainCategoryId: string): Promise<Subcategory[]> {
   try {
+    // Validate mainCategoryId
+    if (!mainCategoryId || mainCategoryId.trim() === '') {
+      console.error('Error: mainCategoryId is empty or invalid');
+      return [];
+    }
+    
     console.log('Fetching subcategories for mainCategoryId:', mainCategoryId);
     const url = `${API_BASE_URL}/customer/categories/${mainCategoryId}/subcategories`;
     console.log('API URL:', url);
@@ -71,7 +77,7 @@ export async function fetchSubcategories(mainCategoryId: string): Promise<Subcat
       headers: {
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 1800 }, // Revalidate every 30 minutes
+      next: { revalidate: 0 }, // No cache - fetch fresh data
     });
 
     console.log('Response status:', response.status);

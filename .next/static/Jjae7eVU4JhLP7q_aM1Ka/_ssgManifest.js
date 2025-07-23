@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Frestaurants\u002F[restaurant]","\u002Frestaurants\u002F[restaurant]\u002F[subcategory]","\u002Fsubcategories\u002F[mainCategoryId]","\u002Fsubcategories\u002F[mainCategoryId]\u002F[subcategorySlug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

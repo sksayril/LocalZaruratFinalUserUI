@@ -169,11 +169,28 @@ export default async function SubcategoryDetailPage({ params }: SubcategoryDetai
 // Generate static params for known subcategories
 export async function generateStaticParams() {
   try {
-    const categories = await fetchSubcategories(''); // This would need to be updated based on your actual categories
-    return categories.map((subcategory) => ({
-      mainCategoryId: subcategory.mainCategory._id,
-      subcategorySlug: subcategory.slug,
-    }));
+    // Import fetchCategories to get main categories first
+    const { fetchCategories } = await import('@/lib/api');
+    const categories = await fetchCategories();
+    
+    const allParams = [];
+    
+    // For each main category, fetch its subcategories
+    for (const category of categories) {
+      try {
+        const subcategories = await fetchSubcategories(category._id);
+        const params = subcategories.map((subcategory) => ({
+          mainCategoryId: category._id,
+          subcategorySlug: subcategory.slug,
+        }));
+        allParams.push(...params);
+      } catch (error) {
+        console.error(`Error fetching subcategories for category ${category._id}:`, error);
+        // Continue with other categories even if one fails
+      }
+    }
+    
+    return allParams;
   } catch (error) {
     console.error('Error generating static params for subcategories:', error);
     return [];
