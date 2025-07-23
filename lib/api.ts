@@ -14,7 +14,7 @@ export interface ApiResponse<T> {
   data: T;
 }
 
-const API_BASE_URL = 'https://7cvccltb-3110.inc1.devtunnels.ms/api';
+const API_BASE_URL = 'https://api.localzarurat.com/api';
 
 export async function fetchCategories(): Promise<Category[]> {
   try {
