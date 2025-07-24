@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useCategories } from '@/hooks/useCategories';
+import { CategoryGridSkeleton } from '@/components/ui/skeleton-loaders';
 
 // Fallback categories in case API fails
 const fallbackCategories = [
@@ -56,24 +57,23 @@ export default function CategoryGrid() {
   // Use API data if available, otherwise fallback to static data
   const displayCategories = categories.length > 0 ? categories : fallbackCategories;
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
       {/* Loading state */}
       {loading && (
-        <div className="text-center py-8">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <p className="mt-2 text-gray-600">Loading categories...</p>
+        <div className="py-8">
+          <CategoryGridSkeleton count={20} />
         </div>
       )}
 
       {/* Error state */}
       {error && (
         <div className="text-center py-8">
-          <p className="text-red-600">Failed to load categories. Using fallback data.</p>
+          <p className="text-red-600 text-sm md:text-base">Failed to load categories. Using fallback data.</p>
         </div>
       )}
 
       {/* Categories grid */}
-      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-10 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3 md:gap-4 lg:gap-6">
         {displayCategories.map((category, index) => {
           // Handle both API and fallback category structures
           const isApiCategory = 'slug' in category;
@@ -86,30 +86,30 @@ export default function CategoryGrid() {
             <Link
               key={isApiCategory ? category._id : index}
               href={isApiCategory ? `/subcategories/${category._id}` : (categoryRoutes[categoryName] || `#`)}
-              className={`flex flex-col items-center p-4 rounded-2xl border bg-white shadow-sm cursor-pointer transition-all duration-200 ${isSpecial ? 'border-pink-300 relative' : ''} ${isPopular ? 'border-2 border-blue-600' : ''}`}
+              className={`flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl border bg-white shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-1 active:scale-95 ${isSpecial ? 'border-pink-300 relative' : ''} ${isPopular ? 'border-2 border-blue-600' : ''}`}
             >
               {/* Icon */}
               {isPopular ? (
-                <div className="w-16 h-16 flex items-center justify-center mb-3">
-                  <span className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center">
-                    <img src={categoryIcon} alt={categoryName} className="w-7 h-7" />
+                <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mb-2 md:mb-3">
+                  <span className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-blue-600 flex items-center justify-center">
+                    <img src={categoryIcon} alt={categoryName} className="w-5 h-5 md:w-7 md:h-7" />
                   </span>
                 </div>
               ) : (
-                <div className="w-16 h-16 flex items-center justify-center mb-3">
-                  <img src={categoryIcon} alt={categoryName} className="w-14 h-14 object-contain" />
+                <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mb-2 md:mb-3">
+                  <img src={categoryIcon} alt={categoryName} className="w-10 h-10 md:w-14 md:h-14 object-contain" />
                 </div>
               )}
               {/* Wedding label */}
               {isSpecial && (
-                <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-pink-100 text-pink-700 text-xs font-bold px-3 py-0.5 rounded-full border border-pink-300" style={{letterSpacing: 1}}>WEDDING</span>
+                <span className="absolute top-1 md:top-2 left-1/2 -translate-x-1/2 bg-pink-100 text-pink-700 text-[10px] md:text-xs font-bold px-2 md:px-3 py-0.5 rounded-full border border-pink-300" style={{letterSpacing: 0.5}}>WEDDING</span>
               )}
-              <span className="text-base text-center font-semibold text-gray-800 mt-1">
+              <span className="text-xs md:text-sm lg:text-base text-center font-semibold text-gray-800 mt-1 leading-tight">
                 {categoryName}
               </span>
               {/* Show vendor count for API categories */}
               {isApiCategory && (
-                <span className="text-xs text-gray-500 mt-1">
+                <span className="text-[10px] md:text-xs text-gray-500 mt-1 text-center">
                   {category.vendorCount} vendors
                 </span>
               )}

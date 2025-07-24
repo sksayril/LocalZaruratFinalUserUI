@@ -22,21 +22,21 @@ const jdVerticals = [
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
         {/* Cities Section */}
-        <div className="mb-8">
-          <p className="text-sm text-gray-600 leading-relaxed">
+        <div className="mb-6 md:mb-8">
+          <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
             {cities.join(' | ')}
           </p>
         </div>
 
         {/* Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-4">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <h4 className="font-semibold text-gray-800 mb-3 md:mb-4 text-sm md:text-base">Quick Links</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 md:gap-2">
               {quickLinks.map((link, index) => (
-                <a key={index} href="#" className="text-sm text-gray-600 hover:text-blue-600">
+                <a key={index} href="#" className="text-xs md:text-sm text-gray-600 hover:text-blue-600 py-1">
                   {link}
                 </a>
               ))}
@@ -44,10 +44,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-800 mb-4">JD Verticals</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <h4 className="font-semibold text-gray-800 mb-3 md:mb-4 text-sm md:text-base">JD Verticals</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 md:gap-2">
               {jdVerticals.map((vertical, index) => (
-                <a key={index} href="#" className="text-sm text-gray-600 hover:text-blue-600">
+                <a key={index} href="#" className="text-xs md:text-sm text-gray-600 hover:text-blue-600 py-1">
                   {vertical}
                 </a>
               ))}
@@ -56,8 +56,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t pt-6">
-          <p className="text-sm text-gray-600">
+        <div className="border-t pt-4 md:pt-6">
+          <p className="text-xs md:text-sm text-gray-600">
             Copyrights 2008-25. All Rights Reserved. Privacy | Terms | Infringement
           </p>
         </div>

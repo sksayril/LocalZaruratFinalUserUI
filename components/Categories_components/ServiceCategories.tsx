@@ -65,40 +65,40 @@ export default function ServiceCategories() {
       }))
     : fallbackCategories;
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-4 py-8 md:py-12">
       {/* Loading state */}
       {loading && (
         <div className="text-center py-8">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <p className="mt-2 text-gray-600">Loading featured services...</p>
+          <p className="mt-2 text-gray-600 text-sm md:text-base">Loading featured services...</p>
         </div>
       )}
 
       {/* Error state */}
       {error && (
         <div className="text-center py-8">
-          <p className="text-red-600">Failed to load featured services. Using fallback data.</p>
+          <p className="text-red-600 text-sm md:text-base">Failed to load featured services. Using fallback data.</p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6">
         {displayCategories.map((category, idx) => (
           <Link 
             key={idx} 
             href={category.link}
-            className={`${category.color} rounded-lg p-6 text-white hover:opacity-90 transition-opacity`}
+            className={`${category.color} rounded-lg p-4 md:p-6 text-white hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95`}
           >
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="font-semibold mb-1">{category.title}</h3>
-                <p className="text-sm opacity-90">{category.subtitle}</p>
+            <div className="flex items-start justify-between mb-3 md:mb-4">
+              <div className="flex-1">
+                <h3 className="font-semibold mb-1 text-sm md:text-base leading-tight">{category.title}</h3>
+                <p className="text-xs md:text-sm opacity-90">{category.subtitle}</p>
               </div>
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 ml-2" />
             </div>
             <img 
               src={category.image} 
               alt={category.title}
-              className="w-full h-32 object-cover rounded mt-4"
+              className="w-full h-24 md:h-32 object-cover rounded mt-3 md:mt-4"
             />
           </Link>
         ))}
