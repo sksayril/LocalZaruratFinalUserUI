@@ -46,15 +46,7 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/restaurants/page-7d08c95ea3f3fd45.js"
-    ],
-    "/restaurants/indian/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/restaurants/indian/page-03d9a1f07fd1bdf4.js"
+      "static/chunks/app/restaurants/page-7f80b48a4022b9c0.js"
     ],
     "/restaurants/global/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -62,7 +54,15 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/restaurants/global/page-3d5a7ed12029b05c.js"
+      "static/chunks/app/restaurants/global/page-aef101421acd32bd.js"
+    ],
+    "/restaurants/indian/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/restaurants/indian/page-e650daefa231c974.js"
     ],
     "/restaurants/nightlife/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -70,7 +70,7 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/restaurants/nightlife/page-aa4127d28382b015.js"
+      "static/chunks/app/restaurants/nightlife/page-8a5123d946950386.js"
     ],
     "/Categories/contractors/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -78,7 +78,40 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/contractors/page-31c9d8002c17d0f1.js"
+      "static/chunks/app/Categories/contractors/page-7d487a5398a59195.js"
+    ],
+    "/Categories/dentists/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/964-87497bae199d8133.js",
+      "static/chunks/app/Categories/dentists/page-fd20fece3b55f32a.js"
+    ],
+    "/Categories/drivingschools/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/drivingschools/page-87c51ec50f913b60.js"
+    ],
+    "/Categories/beautyspa/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/beautyspa/page-b47664800fc7e47b.js"
+    ],
+    "/Categories/estateagent/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/estateagent/page-f5c9426f9d8aa17a.js"
     ],
     "/vendors/[vendorId]/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -90,30 +123,13 @@
       "static/chunks/468-b261b2b6471e2eed.js",
       "static/chunks/app/vendors/[vendorId]/page-9fbae5cb75dc1990.js"
     ],
-    "/Categories/beautyspa/page": [
+    "/Categories/hospitals/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
       "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/beautyspa/page-7b790fb7878a7f46.js"
-    ],
-    "/Categories/drivingschools/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/drivingschools/page-a42f0adc5cda733f.js"
-    ],
-    "/Categories/dentists/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/964-87497bae199d8133.js",
-      "static/chunks/app/Categories/dentists/page-fd20fece3b55f32a.js"
+      "static/chunks/app/Categories/hospitals/page-4b643a87962d2638.js"
     ],
     "/Categories/courierservice/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -121,39 +137,7 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/courierservice/page-fd7b4269a3561979.js"
-    ],
-    "/Categories/education/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/education/page-7614daeeea181e6e.js"
-    ],
-    "/Categories/homedecor/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/homedecor/page-93a99368f64c177b.js"
-    ],
-    "/Categories/estateagent/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/estateagent/page-8b6a81c87bf79048.js"
-    ],
-    "/Categories/hotels/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/hotels/page-5194b15d9e0a78ee.js"
+      "static/chunks/app/Categories/courierservice/page-6ecb9a8720af18d3.js"
     ],
     "/Categories/gym/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -164,13 +148,45 @@
       "static/chunks/964-87497bae199d8133.js",
       "static/chunks/app/Categories/gym/page-4cf89b21a5be2fb9.js"
     ],
-    "/Categories/petshops/page": [
+    "/Categories/education/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
       "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/petshops/page-54a0b0222d73be8d.js"
+      "static/chunks/app/Categories/education/page-13b7590a0dbb9168.js"
+    ],
+    "/Categories/hotels/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/hotels/page-1e00d64f6de928e4.js"
+    ],
+    "/Categories/homedecor/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/homedecor/page-d3dd9eec1a31eae9.js"
+    ],
+    "/Categories/eventorganisers/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/eventorganisers/page-b4dbaac7b378e1ad.js"
+    ],
+    "/Categories/packersmovers/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/packersmovers/page-4d977d6f3d0210fb.js"
     ],
     "/Categories/loans/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -181,69 +197,21 @@
       "static/chunks/964-87497bae199d8133.js",
       "static/chunks/app/Categories/loans/page-43a58ffe97870c0c.js"
     ],
-    "/Categories/eventorganisers/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/eventorganisers/page-4097e8a93d34d75c.js"
-    ],
-    "/Categories/packersmovers/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/packersmovers/page-89d3e482bd8905da.js"
-    ],
-    "/Categories/quickbites/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/quickbites/page-9f62fa255ec3f949.js"
-    ],
     "/Categories/renthire/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
       "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/renthire/page-c824cfb6b3545672.js"
+      "static/chunks/app/Categories/renthire/page-944a9f2885a253b5.js"
     ],
-    "/Categories/restaurants/page": [
+    "/Categories/petshops/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
       "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/restaurants/page-600fbd02b55ae2eb.js"
-    ],
-    "/Categories/hospitals/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/hospitals/page-c8f83023751b0d1f.js"
-    ],
-    "/Categories/sweettooth/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/sweettooth/page-360a34ddc6e9c25a.js"
-    ],
-    "/Categories/wedding/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/wedding/page-46bab99e83a3cae0.js"
+      "static/chunks/app/Categories/petshops/page-cee956ce00d76d84.js"
     ],
     "/Categories/pghostels/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -251,7 +219,39 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/pghostels/page-8c9c29cf6b3e8b81.js"
+      "static/chunks/app/Categories/pghostels/page-0e98e9e7af05c8fc.js"
+    ],
+    "/Categories/quickbites/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/quickbites/page-887688764658ad2a.js"
+    ],
+    "/Categories/sweettooth/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/sweettooth/page-6c5c8a9e2e85637c.js"
+    ],
+    "/Categories/wedding/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/wedding/page-1fff7cc646adc9d6.js"
+    ],
+    "/Categories/restaurants/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/Categories/restaurants/page-36dfd08edcbca947.js"
     ],
     "/Categories/weddingplanning/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -259,7 +259,7 @@
       "static/chunks/864-d7bfb3ad6976500d.js",
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/Categories/weddingplanning/page-0a00578f7a3a8342.js"
+      "static/chunks/app/Categories/weddingplanning/page-4f95201ca7ea1e42.js"
     ],
     "/subcategories/[mainCategoryId]/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
@@ -278,6 +278,14 @@
       "static/chunks/main-app-3616095def75bf10.js",
       "static/chunks/app/restaurants/[restaurant]/page-ea935410a798fd58.js"
     ],
+    "/restaurants/[restaurant]/[subcategory]/page": [
+      "static/chunks/webpack-9b5834059fa7934a.js",
+      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
+      "static/chunks/864-d7bfb3ad6976500d.js",
+      "static/chunks/main-app-3616095def75bf10.js",
+      "static/chunks/724-4dc2a2c43f6b3382.js",
+      "static/chunks/app/restaurants/[restaurant]/[subcategory]/page-7fec110c850d58a7.js"
+    ],
     "/subcategories/[mainCategoryId]/[subcategorySlug]/page": [
       "static/chunks/webpack-9b5834059fa7934a.js",
       "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
@@ -287,14 +295,6 @@
       "static/chunks/470-02dae284690c8a9c.js",
       "static/chunks/468-b261b2b6471e2eed.js",
       "static/chunks/app/subcategories/[mainCategoryId]/[subcategorySlug]/page-72f9bdf9a0d24c3b.js"
-    ],
-    "/restaurants/[restaurant]/[subcategory]/page": [
-      "static/chunks/webpack-9b5834059fa7934a.js",
-      "static/chunks/fd9d1056-4e3ec3d346d101ef.js",
-      "static/chunks/864-d7bfb3ad6976500d.js",
-      "static/chunks/main-app-3616095def75bf10.js",
-      "static/chunks/724-4dc2a2c43f6b3382.js",
-      "static/chunks/app/restaurants/[restaurant]/[subcategory]/page-b2588f94189ca904.js"
     ]
   }
 }
