@@ -83,11 +83,13 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="max-w-7xl mx-auto py-6 md:py-8 px-4 md:px-6">
-        {/* Breadcrumb */}
-        <div className="text-xs md:text-sm text-gray-600 mb-4 md:mb-6 flex items-center space-x-1 md:space-x-2 flex-wrap">
-          <Link href="/" className="hover:text-blue-600 cursor-pointer font-medium">Home</Link>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 selection:bg-blue-100 selection:text-blue-800">
+      <div className="max-w-7xl mx-auto py-6 md:py-12 px-4 md:px-6 space-y-8">
+        {/* Breadcrumb with more refined styling */}
+        <div className="text-xs md:text-sm text-gray-600 mb-4 md:mb-6 flex items-center space-x-2 flex-wrap">
+          <Link href="/" className="hover:text-blue-600 cursor-pointer font-medium transition-colors group flex items-center">
+            <span className="group-hover:translate-x-[-2px] transition-transform">Home</span>
+          </Link>
           <span className="text-gray-400">›</span>
           <Link href={`/subcategories/${vendor.vendorDetails.mainCategory._id}`} className="hover:text-blue-600 cursor-pointer font-medium">
             {vendor.vendorDetails.mainCategory.name}
@@ -100,21 +102,21 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
           <span className="text-gray-800 font-semibold">{vendor.vendorDetails.shopName}</span>
         </div>
 
-        {/* Premium Hero Section with Image Gallery */}
-        <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
-          {/* Image Gallery */}
-          <div className="relative h-64 md:h-80 lg:h-96">
+        {/* Premium Hero Section with Enhanced Image Gallery */}
+        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-3xl">
+          {/* Image Gallery with more premium hover effects */}
+          <div className="relative h-64 md:h-96 lg:h-[500px] group">
             <div className="grid grid-cols-4 gap-2 h-full">
-              {/* Main Large Image */}
-              <div className="col-span-3 relative">
+              {/* Main Large Image with enhanced hover effect */}
+              <div className="col-span-3 relative overflow-hidden">
                 {vendor.vendorDetails.shopImages && vendor.vendorDetails.shopImages.length > 0 ? (
                   <img 
                     src={vendor.vendorDetails.shopImages[0]} 
                     alt={vendor.vendorDetails.shopName}
-                    className="w-full h-full object-cover rounded-l-2xl"
+                    className="w-full h-full object-cover rounded-l-3xl transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center rounded-l-2xl">
+                  <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center rounded-l-3xl">
                     <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-3xl font-bold">
                         {vendor.vendorDetails.shopName.charAt(0).toUpperCase()}
@@ -122,30 +124,30 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
                     </div>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-l-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-l-3xl"></div>
               </div>
               
-              {/* Side Images */}
+              {/* Side Images with premium hover state */}
               <div className="col-span-1 space-y-2">
                 {vendor.vendorDetails.shopImages && vendor.vendorDetails.shopImages.length > 1 ? (
                   <>
-                    <div className="relative h-1/2">
+                    <div className="relative h-1/2 overflow-hidden">
                       <img 
                         src={vendor.vendorDetails.shopImages[1]} 
                         alt={vendor.vendorDetails.shopName}
-                        className="w-full h-full object-cover rounded-tr-2xl"
+                        className="w-full h-full object-cover rounded-tr-3xl transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-black/20 rounded-tr-2xl"></div>
+                      <div className="absolute inset-0 bg-black/20 rounded-tr-3xl"></div>
                     </div>
-                    <div className="relative h-1/2">
+                    <div className="relative h-1/2 overflow-hidden">
                       <img 
                         src={vendor.vendorDetails.shopImages[2] || vendor.vendorDetails.shopImages[1]} 
                         alt={vendor.vendorDetails.shopName}
-                        className="w-full h-full object-cover rounded-br-2xl"
+                        className="w-full h-full object-cover rounded-br-3xl transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-black/20 rounded-br-2xl"></div>
+                      <div className="absolute inset-0 bg-black/20 rounded-br-3xl"></div>
                       {vendor.vendorDetails.shopImages.length > 3 && (
-                        <div className="absolute inset-0 bg-black/60 rounded-br-2xl flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/60 rounded-br-3xl flex items-center justify-center">
                           <span className="text-white text-sm font-bold">+{vendor.vendorDetails.shopImages.length - 3} More</span>
                         </div>
                       )}
@@ -153,12 +155,12 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
                   </>
                 ) : (
                   <>
-                    <div className="h-1/2 bg-gradient-to-br from-gray-200 to-gray-300 rounded-tr-2xl flex items-center justify-center">
+                    <div className="h-1/2 bg-gradient-to-br from-gray-200 to-gray-300 rounded-tr-3xl flex items-center justify-center">
                       <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
                         <span className="text-white text-sm">+</span>
                       </div>
                     </div>
-                    <div className="h-1/2 bg-gradient-to-br from-gray-200 to-gray-300 rounded-br-2xl flex items-center justify-center">
+                    <div className="h-1/2 bg-gradient-to-br from-gray-200 to-gray-300 rounded-br-3xl flex items-center justify-center">
                       <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
                         <span className="text-white text-sm">+</span>
                       </div>
@@ -168,27 +170,27 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
               </div>
             </div>
             
-            {/* Action Buttons */}
+            {/* Action Buttons with more refined hover states */}
             <div className="absolute top-4 right-4 flex gap-2">
-              <button className="bg-white/90 backdrop-blur-sm text-gray-700 p-2 rounded-lg hover:bg-white transition-all duration-300">
-                <Share2 className="w-4 h-4" />
+              <button className="bg-white/80 backdrop-blur-md text-gray-700 p-2.5 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <Share2 className="w-5 h-5" />
               </button>
-              <button className={`p-2 rounded-lg transition-all duration-300 ${
+              <button className={`p-2.5 rounded-xl transition-all duration-300 hover:scale-105 ${
                 isFavorited 
                   ? 'bg-red-500 text-white' 
-                  : 'bg-white/90 backdrop-blur-sm text-gray-700 hover:bg-white'
+                  : 'bg-white/80 backdrop-blur-md text-gray-700 hover:bg-white hover:shadow-lg'
               }`}>
-                <Heart className={`w-4 h-4 ${isFavorited ? 'fill-current' : ''}`} />
+                <Heart className={`w-5 h-5 ${isFavorited ? 'fill-current' : ''}`} />
               </button>
-              <button className="bg-white/90 backdrop-blur-sm text-gray-700 p-2 rounded-lg hover:bg-white transition-all duration-300">
-                <Bookmark className="w-4 h-4" />
+              <button className="bg-white/80 backdrop-blur-md text-gray-700 p-2.5 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <Bookmark className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* Vendor Info Section */}
-          <div className="p-6 md:p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+          {/* Vendor Info Section with more refined typography and spacing */}
+          <div className="p-8 lg:p-12">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
               {/* Left Side - Vendor Details */}
               <div className="flex-1">
                 {/* Logo and Name */}
@@ -314,362 +316,362 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Navigation Tabs */}
-        <div className="bg-white rounded-xl md:rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-6 md:mb-8">
-          <div className="border-b border-gray-200">
-            <nav className="flex space-x-8 px-6 md:px-8">
-              <button className="py-4 px-1 border-b-2 border-blue-500 text-blue-600 font-semibold text-sm">
-                Overview
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
-                Health Services
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
-                Quick Info
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
-                Services
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
-                Photos
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
-                Reviews
-              </button>
-            </nav>
-          </div>
-        </div>
-
-        {/* Stats and Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
-          <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                <Package className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="text-sm md:text-lg font-semibold text-gray-900">Products</h3>
-                <p className="text-xl md:text-2xl font-bold text-blue-600">{products.length}</p>
-              </div>
+          {/* Navigation Tabs with more premium styling */}
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+            <div className="border-b border-gray-200">
+              <nav className="flex space-x-8 px-8 py-1">
+                <button className="py-4 px-1 border-b-3 border-blue-600 text-blue-600 font-semibold text-sm relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-blue-600 after:scale-x-100 hover:after:scale-x-110 transition-transform">
+                  Overview
+                </button>
+                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                  Health Services
+                </button>
+                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                  Quick Info
+                </button>
+                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                  Services
+                </button>
+                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                  Photos
+                </button>
+                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                  Reviews
+                </button>
+              </nav>
             </div>
-            <p className="text-gray-600 text-xs md:text-sm">Available products</p>
           </div>
 
-          <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                <Star className="w-5 h-5 md:w-6 md:h-6 text-green-600 fill-current" />
-              </div>
-              <div>
-                <h3 className="text-sm md:text-lg font-semibold text-gray-900">Rating</h3>
-                <p className="text-xl md:text-2xl font-bold text-green-600">
-                  {ratingStats?.averageRating.toFixed(1) || '0.0'}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-600 text-xs md:text-sm">Average rating</p>
-          </div>
-
-          <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                <Calendar className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
-              </div>
-              <div>
-                <h3 className="text-sm md:text-lg font-semibold text-gray-900">Since</h3>
-                <p className="text-xl md:text-2xl font-bold text-purple-600">
-                  {new Date(vendor.createdAt).getFullYear()}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-600 text-xs md:text-sm">Years in business</p>
-          </div>
-
-          <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
-              </div>
-              <div>
-                <h3 className="text-sm md:text-lg font-semibold text-gray-900">Views</h3>
-                <p className="text-xl md:text-2xl font-bold text-orange-600">
-                  {products.reduce((acc, product) => acc + product.views, 0)}
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-600 text-xs md:text-sm">Total product views</p>
-          </div>
-        </div>
-
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
-          {/* Left Column - Products */}
-          <div className="lg:col-span-3">
-            {/* Products Section */}
-            <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
-              <div className="p-6 md:p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Products & Services</h2>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <span>{products.length} products</span>
-                  </div>
+          {/* Stats and Quick Actions */}
+          <div className="grid grid-cols-1 mt-4 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg md:rounded-xl flex items-center justify-center">
+                  <Package className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                 </div>
-                
-                {products.length === 0 ? (
-                  <div className="text-center py-12">
-                    <div className="bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
-                      <Package className="w-6 h-6 text-gray-400" />
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">No Products Available</h3>
-                    <p className="text-gray-600 text-sm md:text-base">This vendor hasn't listed any products yet.</p>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    {products.map((product) => (
-                      <div key={product._id} className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-lg transition-all duration-300 group">
-                        {/* Product Image */}
-                        <div className="relative h-48 md:h-56 rounded-lg md:rounded-xl overflow-hidden mb-4">
-                          {product.images && product.images.length > 0 ? (
-                            <img 
-                              src={product.images[0].url} 
-                              alt={product.images[0].alt || product.name}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                              <Package className="w-12 h-12 text-gray-400" />
-                            </div>
-                          )}
-                          <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
-                            {product.views} views
-                          </div>
-                        </div>
+                <div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Products</h3>
+                  <p className="text-xl md:text-2xl font-bold text-blue-600">{products.length}</p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-xs md:text-sm">Available products</p>
+            </div>
 
-                        {/* Product Info */}
-                        <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 line-clamp-1">{product.name}</h3>
-                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
-                        
-                        {/* Price */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-2">
-                            <span className="text-xl md:text-2xl font-bold text-green-600">₹{product.price.amount}</span>
-                            {product.price.isNegotiable && (
-                              <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Negotiable</span>
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg md:rounded-xl flex items-center justify-center">
+                  <Star className="w-5 h-5 md:w-6 md:h-6 text-green-600 fill-current" />
+                </div>
+                <div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Rating</h3>
+                  <p className="text-xl md:text-2xl font-bold text-green-600">
+                    {ratingStats?.averageRating.toFixed(1) || '0.0'}
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-xs md:text-sm">Average rating</p>
+            </div>
+
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg md:rounded-xl flex items-center justify-center">
+                  <Calendar className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Since</h3>
+                  <p className="text-xl md:text-2xl font-bold text-purple-600">
+                    {new Date(vendor.createdAt).getFullYear()}
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-xs md:text-sm">Years in business</p>
+            </div>
+
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-100 rounded-lg md:rounded-xl flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
+                </div>
+                <div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Views</h3>
+                  <p className="text-xl md:text-2xl font-bold text-orange-600">
+                    {products.reduce((acc, product) => acc + product.views, 0)}
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-xs md:text-sm">Total product views</p>
+            </div>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Left Column - Products */}
+            <div className="lg:col-span-3">
+              {/* Products Section */}
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Products & Services</h2>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <span>{products.length} products</span>
+                    </div>
+                  </div>
+                  
+                  {products.length === 0 ? (
+                    <div className="text-center py-12">
+                      <div className="bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <Package className="w-6 h-6 text-gray-400" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">No Products Available</h3>
+                      <p className="text-gray-600 text-sm md:text-base">This vendor hasn't listed any products yet.</p>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                      {products.map((product) => (
+                        <div key={product._id} className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-lg transition-all duration-300 group">
+                          {/* Product Image */}
+                          <div className="relative h-48 md:h-56 rounded-lg md:rounded-xl overflow-hidden mb-4">
+                            {product.images && product.images.length > 0 ? (
+                              <img 
+                                src={product.images[0].url} 
+                                alt={product.images[0].alt || product.name}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                <Package className="w-12 h-12 text-gray-400" />
+                              </div>
                             )}
-                          </div>
-                          <span className="text-xs text-gray-500">{product.price.currency}</span>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-2">
-                          <button className="flex-1 bg-blue-600 text-white px-4 py-2 md:py-3 rounded-lg text-sm font-bold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center gap-2">
-                            <ShoppingCart className="w-4 h-4" />
-                            Inquire
-                          </button>
-                          <button className="bg-gray-100 text-gray-700 px-4 py-2 md:py-3 rounded-lg text-sm font-bold hover:bg-gray-200 transition-all duration-300">
-                            <MessageCircle className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Vendor Info & Reviews */}
-          <div className="space-y-6 md:space-y-8">
-            {/* Sidebar Action Tabs */}
-            <div className="space-y-3">
-              <div className="bg-orange-500 text-white p-3 rounded-lg flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-orange-600 transition-colors">
-                Advertise
-              </div>
-              <div className="bg-blue-500 text-white p-3 rounded-lg flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-blue-600 transition-colors">
-                Free Listing
-              </div>
-            </div>
-            {/* Vendor Information */}
-            <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-              <div className="p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Vendor Information</h2>
-                
-                <div className="space-y-4 md:space-y-6">
-                  {/* Contact Info */}
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">Contact Details</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Phone className="w-4 h-4 text-green-500" />
-                        <span className="font-medium">{vendor.phone}</span>
-                      </div>
-                      <div className="flex items-start gap-2 text-sm text-gray-600">
-                        <MapPin className="w-4 h-4 text-blue-500 mt-0.5" />
-                        <span>
-                          {vendor.address.street}, {vendor.address.city}, {vendor.address.state} - {vendor.address.pincode}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Shop Details */}
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">Shop Details</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-2 text-sm text-gray-600">
-                        <MapPin className="w-4 h-4 text-purple-500 mt-0.5" />
-                        <span>
-                          {vendor.vendorDetails.shopAddress.addressLine1}, {vendor.vendorDetails.shopAddress.location}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 text-orange-500" />
-                        <span>Listed {new Date(vendor.vendorDetails.shopListedAt).toLocaleDateString()}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">About</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {vendor.vendorDetails.shopDescription}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2 mt-6 md:mt-8">
-                  <button className="flex-1 bg-blue-600 text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    Contact
-                  </button>
-                  <button className="flex-1 bg-green-600 text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    Message
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Rating & Reviews */}
-            <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-              <div className="p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Rating & Reviews</h2>
-                
-                {ratingStats && ratingStats.totalRatings > 0 ? (
-                  <div className="space-y-4 md:space-y-6">
-                    {/* Overall Rating */}
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-                        {ratingStats.averageRating.toFixed(1)}
-                      </div>
-                      <div className="flex items-center justify-center gap-1 mb-2">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star 
-                            key={star}
-                            className={`w-5 h-5 md:w-6 md:h-6 ${
-                              star <= ratingStats.averageRating 
-                                ? 'text-yellow-400 fill-current' 
-                                : 'text-gray-300'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <p className="text-sm text-gray-600">{ratingStats.totalRatings} reviews</p>
-                    </div>
-
-                    {/* Rating Distribution */}
-                    <div className="space-y-2">
-                      {[5, 4, 3, 2, 1].map((rating) => {
-                        const count = ratingStats.ratingDistribution[rating.toString() as keyof typeof ratingStats.ratingDistribution];
-                        const percentage = ratingStats.totalRatings > 0 ? (count / ratingStats.totalRatings) * 100 : 0;
-                        return (
-                          <div key={rating} className="flex items-center gap-2">
-                            <span className="text-sm text-gray-600 w-4">{rating}★</span>
-                            <div className="flex-1 bg-gray-200 rounded-full h-2">
-                              <div 
-                                className="bg-yellow-400 h-2 rounded-full" 
-                                style={{ width: `${percentage}%` }}
-                              ></div>
+                            <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+                              {product.views} views
                             </div>
-                            <span className="text-sm text-gray-600 w-8">{count}</span>
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <div className="bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
-                      <Star className="w-6 h-6 text-gray-400" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">No Reviews Yet</h3>
-                    <p className="text-gray-600 text-sm">Be the first to review this vendor!</p>
-                  </div>
-                )}
 
-                {/* Review Action */}
-                <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t">
-                  <button className="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-xl text-sm font-bold hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2">
-                    <ThumbsUp className="w-4 h-4" />
-                    Write a Review
-                  </button>
+                          {/* Product Info */}
+                          <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 line-clamp-1">{product.name}</h3>
+                          <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                          
+                          {/* Price */}
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl md:text-2xl font-bold text-green-600">₹{product.price.amount}</span>
+                              {product.price.isNegotiable && (
+                                <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Negotiable</span>
+                              )}
+                            </div>
+                            <span className="text-xs text-gray-500">{product.price.currency}</span>
+                          </div>
+
+                          {/* Action Buttons */}
+                          <div className="flex gap-2">
+                            <button className="flex-1 bg-blue-600 text-white px-4 py-2 md:py-3 rounded-lg text-sm font-bold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center gap-2">
+                              <ShoppingCart className="w-4 h-4" />
+                              Inquire
+                            </button>
+                            <button className="bg-gray-100 text-gray-700 px-4 py-2 md:py-3 rounded-lg text-sm font-bold hover:bg-gray-200 transition-all duration-300">
+                              <MessageCircle className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Vendor Info & Reviews */}
+            <div className="space-y-6 md:space-y-8">
+              {/* Sidebar Action Tabs */}
+              <div className="space-y-3">
+                <div className="bg-orange-500 text-white p-3 rounded-lg flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-orange-600 transition-colors">
+                  Advertise
+                </div>
+                <div className="bg-blue-500 text-white p-3 rounded-lg flex items-center justify-center font-bold text-sm cursor-pointer hover:bg-blue-600 transition-colors">
+                  Free Listing
+                </div>
+              </div>
+              {/* Vendor Information */}
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                <div className="p-6 md:p-8">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Vendor Information</h2>
+                  
+                  <div className="space-y-4 md:space-y-6">
+                    {/* Contact Info */}
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-gray-800 text-sm md:text-base">Contact Details</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Phone className="w-4 h-4 text-green-500" />
+                          <span className="font-medium">{vendor.phone}</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm text-gray-600">
+                          <MapPin className="w-4 h-4 text-blue-500 mt-0.5" />
+                          <span>
+                            {vendor.address.street}, {vendor.address.city}, {vendor.address.state} - {vendor.address.pincode}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Shop Details */}
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-gray-800 text-sm md:text-base">Shop Details</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-start gap-2 text-sm text-gray-600">
+                          <MapPin className="w-4 h-4 text-purple-500 mt-0.5" />
+                          <span>
+                            {vendor.vendorDetails.shopAddress.addressLine1}, {vendor.vendorDetails.shopAddress.location}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Calendar className="w-4 h-4 text-orange-500" />
+                          <span>Listed {new Date(vendor.vendorDetails.shopListedAt).toLocaleDateString()}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-gray-800 text-sm md:text-base">About</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {vendor.vendorDetails.shopDescription}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 mt-6 md:mt-8">
+                    <button className="flex-1 bg-blue-600 text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      Contact
+                    </button>
+                    <button className="flex-1 bg-green-600 text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-2">
+                      <Mail className="w-4 h-4" />
+                      Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Rating & Reviews */}
+              {/* <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                <div className="p-6 md:p-8">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Rating & Reviews</h2>
+                  
+                  {ratingStats && ratingStats.totalRatings > 0 ? (
+                    <div className="space-y-4 md:space-y-6">
+                      {/* Overall Rating */}
+                      {/* <div className="text-center">
+                        <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+                          {ratingStats.averageRating.toFixed(1)}
+                        </div>
+                        <div className="flex items-center justify-center gap-1 mb-2">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star 
+                              key={star}
+                              className={`w-5 h-5 md:w-6 md:h-6 ${
+                                star <= ratingStats.averageRating 
+                                  ? 'text-yellow-400 fill-current' 
+                                  : 'text-gray-300'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <p className="text-sm text-gray-600">{ratingStats.totalRatings} reviews</p>
+                      </div>
+
+                      {/* Rating Distribution */}
+                      {/* <div className="space-y-2">
+                        {[5, 4, 3, 2, 1].map((rating) => {
+                          const count = ratingStats.ratingDistribution[rating.toString() as keyof typeof ratingStats.ratingDistribution];
+                          const percentage = ratingStats.totalRatings > 0 ? (count / ratingStats.totalRatings) * 100 : 0;
+                          return (
+                            <div key={rating} className="flex items-center gap-2">
+                              <span className="text-sm text-gray-600 w-4">{rating}★</span>
+                              <div className="flex-1 bg-gray-200 rounded-full h-2">
+                                <div 
+                                  className="bg-yellow-400 h-2 rounded-full" 
+                                  style={{ width: `${percentage}%` }}
+                                ></div>
+                              </div>
+                              <span className="text-sm text-gray-600 w-8">{count}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-8">
+                      <div className="bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <Star className="w-6 h-6 text-gray-400" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">No Reviews Yet</h3>
+                      <p className="text-gray-600 text-sm">Be the first to review this vendor!</p>
+                    </div>
+                  )}
+
+                  {/* Review Action */}
+                  {/* <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t">
+                    <button className="w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-xl text-sm font-bold hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2">
+                      <ThumbsUp className="w-4 h-4" />
+                      Write a Review
+                    </button>
+                  </div>
+                </div>
+              </div>  */} 
+            </div>
+          </div>
+
+          {/* Awards and Certificates Section */}
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
+            <div className="p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Awards and Certificates</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Award Card */}
+                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Award className="w-8 h-8 text-yellow-600" />
+                    <h3 className="text-lg font-bold text-gray-800">Excellence Award</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">Recognized for outstanding service quality and customer satisfaction.</p>
+                  <div className="text-xs text-gray-500">Awarded 2023</div>
+                </div>
+
+                {/* Certificate Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Shield className="w-8 h-8 text-blue-600" />
+                    <h3 className="text-lg font-bold text-gray-800">Quality Certified</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">ISO certified for maintaining high standards in beauty and wellness services.</p>
+                  <div className="text-xs text-gray-500">Certified 2022</div>
+                </div>
+
+                {/* Recognition Card */}
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Star className="w-8 h-8 text-green-600" />
+                    <h3 className="text-lg font-bold text-gray-800">Top Rated</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">Consistently rated among the top beauty clinics in the region.</p>
+                  <div className="text-xs text-gray-500">2021-2023</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Awards and Certificates Section */}
-        <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
-          <div className="p-6 md:p-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Awards and Certificates</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Award Card */}
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200">
-                <div className="flex items-center gap-3 mb-3">
-                  <Award className="w-8 h-8 text-yellow-600" />
-                  <h3 className="text-lg font-bold text-gray-800">Excellence Award</h3>
-                </div>
-                <p className="text-sm text-gray-600 mb-3">Recognized for outstanding service quality and customer satisfaction.</p>
-                <div className="text-xs text-gray-500">Awarded 2023</div>
-              </div>
-
-              {/* Certificate Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-                <div className="flex items-center gap-3 mb-3">
-                  <Shield className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-bold text-gray-800">Quality Certified</h3>
-                </div>
-                <p className="text-sm text-gray-600 mb-3">ISO certified for maintaining high standards in beauty and wellness services.</p>
-                <div className="text-xs text-gray-500">Certified 2022</div>
-              </div>
-
-              {/* Recognition Card */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
-                <div className="flex items-center gap-3 mb-3">
-                  <Star className="w-8 h-8 text-green-600" />
-                  <h3 className="text-lg font-bold text-gray-800">Top Rated</h3>
-                </div>
-                <p className="text-sm text-gray-600 mb-3">Consistently rated among the top beauty clinics in the region.</p>
-                <div className="text-xs text-gray-500">2021-2023</div>
-              </div>
-            </div>
+          {/* Back Button */}
+          <div className="text-center mt-8 md:mt-12">
+            <Link 
+              href={`/subcategories/${vendor.vendorDetails.mainCategory._id}/${vendor.vendorDetails.subCategory.name.toLowerCase().replace(/\s+/g, '-')}`}
+              className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-semibold transition-colors text-sm md:text-base"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Vendors
+            </Link>
           </div>
-        </div>
-
-        {/* Back Button */}
-        <div className="text-center mt-8 md:mt-12">
-          <Link 
-            href={`/subcategories/${vendor.vendorDetails.mainCategory._id}/${vendor.vendorDetails.subCategory.name.toLowerCase().replace(/\s+/g, '-')}`}
-            className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-semibold transition-colors text-sm md:text-base"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Vendors
-          </Link>
         </div>
       </div>
     </div>
