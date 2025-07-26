@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Metadata } from 'next';
 import { useVendorDetails } from '@/hooks/useVendorDetails';
-import { ArrowLeft, Star, MapPin, Phone, Mail, Calendar, Clock, Award, CheckCircle, Shield, Wallet, Heart, Eye, ShoppingCart, Share2, MessageCircle, ThumbsUp, ThumbsDown, Users, Package, TrendingUp, Bookmark, Edit3, Crown, Zap, Clock as ClockIcon, Users as UsersIcon } from 'lucide-react';
+import { ArrowLeft, Star, MapPin, Phone, Mail, Calendar, Award, CheckCircle, Shield, Wallet, Heart, Eye, ShoppingCart, Share2, MessageCircle, ThumbsUp, ThumbsDown, Users, Package, TrendingUp, Bookmark, Edit3, Crown, Zap, Clock, Users as UsersIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VendorCardSkeleton, HeroSectionSkeleton, BreadcrumbSkeleton, FormSkeleton } from '@/components/ui/skeleton-loaders';
 
@@ -15,6 +15,7 @@ interface VendorDetailPageProps {
 
 export default function VendorDetailPage({ params }: VendorDetailPageProps) {
   const { vendorId } = params;
+  const [activeTab, setActiveTab] = useState('overview');
   const { vendor, products, ratingStats, recentReviews, isFavorited, loading, error } = useVendorDetails(vendorId);
 
   // Debug logging
@@ -33,7 +34,7 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
           <HeroSectionSkeleton />
           
           {/* Vendor Info Skeleton */}
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
+          <div className="bg-white shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
             <div className="p-6 md:p-8">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div className="flex-1">
@@ -84,7 +85,16 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 selection:bg-blue-100 selection:text-blue-800">
-      <div className="max-w-7xl mx-auto py-6 md:py-12 px-4 md:px-6 space-y-8">
+      <div className="flex justify-end mt-5 mr-4">
+            <Link 
+              href={`/subcategories/${vendor.vendorDetails.mainCategory._id}/${vendor.vendorDetails.subCategory.name.toLowerCase().replace(/\s+/g, '-')}`}
+              className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-red-500/30 text-sm md:text-base"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Vendors
+            </Link>
+          </div>
+      <div className="max-w-7xl mx-auto py-4 md:py-12 px-3 md:px-6 space-y-8">
         {/* Breadcrumb with more refined styling */}
         <div className="text-xs md:text-sm text-gray-600 mb-4 md:mb-6 flex items-center space-x-2 flex-wrap">
           <Link href="/" className="hover:text-blue-600 cursor-pointer font-medium transition-colors group flex items-center">
@@ -103,9 +113,9 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
         </div>
 
         {/* Premium Hero Section with Enhanced Image Gallery */}
-        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-3xl">
+        <div className="bg-whiten  shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-3xl">
           {/* Image Gallery with more premium hover effects */}
-          <div className="relative h-64 md:h-96 lg:h-[500px] group">
+          <div className="relative h-60 md:h-96 lg:h-[500px] group">
             <div className="grid grid-cols-4 gap-2 h-full">
               {/* Main Large Image with enhanced hover effect */}
               <div className="col-span-3 relative overflow-hidden">
@@ -239,7 +249,7 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
                         <span>{vendor.vendorDetails.shopAddress.location}, {vendor.vendorDetails.shopAddress.nearbyLocation}</span>
                       </div>
                       <div className="flex items-center gap-1 text-sm text-gray-600">
-                        <ClockIcon className="w-4 h-4" />
+                        <Clock className="w-4 h-4" />
                         <span>20 Years in Healthcare</span>
                       </div>
                     </div>
@@ -318,89 +328,367 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
           </div>
 
           {/* Navigation Tabs with more premium styling */}
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-white shadow-xl border border-gray-100 overflow-hidden">
             <div className="border-b border-gray-200">
               <nav className="flex space-x-8 px-8 py-1">
-                <button className="py-4 px-1 border-b-3 border-blue-600 text-blue-600 font-semibold text-sm relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-blue-600 after:scale-x-100 hover:after:scale-x-110 transition-transform">
+                <button 
+                  onClick={() => setActiveTab('overview')}
+                  className={`py-4 px-1 border-b-3 ${
+                    activeTab === 'overview' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } font-semibold text-sm relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-blue-600 after:scale-x-100 hover:after:scale-x-110 transition-transform`}
+                >
                   Overview
                 </button>
-                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                <button 
+                  onClick={() => setActiveTab('healthServices')}
+                  className={`py-4 px-1 border-b-2 ${
+                    activeTab === 'healthServices' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } hover:text-gray-700 font-medium text-sm`}
+                >
                   Health Services
                 </button>
-                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                <button 
+                  onClick={() => setActiveTab('quickInfo')}
+                  className={`py-4 px-1 border-b-2 ${
+                    activeTab === 'quickInfo' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } hover:text-gray-700 font-medium text-sm`}
+                >
                   Quick Info
                 </button>
-                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                <button 
+                  onClick={() => setActiveTab('services')}
+                  className={`py-4 px-1 border-b-2 ${
+                    activeTab === 'services' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } hover:text-gray-700 font-medium text-sm`}
+                >
                   Services
                 </button>
-                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                <button 
+                  onClick={() => setActiveTab('photos')}
+                  className={`py-4 px-1 border-b-2 ${
+                    activeTab === 'photos' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } hover:text-gray-700 font-medium text-sm`}
+                >
                   Photos
                 </button>
-                <button className="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">
+                <button 
+                  onClick={() => setActiveTab('reviews')}
+                  className={`py-4 px-1 border-b-2 ${
+                    activeTab === 'reviews' 
+                      ? 'border-blue-600 text-blue-600' 
+                      : 'border-transparent text-gray-500'
+                  } hover:text-gray-700 font-medium text-sm`}
+                >
                   Reviews
                 </button>
               </nav>
             </div>
+
+            {/* Add the content sections */}
+            <div className="p-6 md:p-8">
+              {/* Overview Section */}
+              {activeTab === 'overview' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-800">{vendor.vendorDetails.shopName}</h2>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <p className="text-gray-600 text-lg">{vendor.vendorDetails.shopDescription}</p>
+                    <div className="mt-4 flex flex-col gap-3">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <MapPin className="w-5 h-5 text-blue-500" />
+                        <span>{vendor.vendorDetails.shopAddress.addressLine1}, {vendor.vendorDetails.shopAddress.addressLine2}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Calendar className="w-5 h-5 text-purple-500" />
+                        <span>Member since {new Date(vendor.createdAt).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Health Services Section */}
+              {activeTab === 'healthServices' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-800">Health Services</h2>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-blue-50 rounded-lg">
+                        <Star className="w-6 h-6 text-blue-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg">{vendor.vendorDetails.mainCategory.name}</h3>
+                        <p className="text-gray-600">{vendor.vendorDetails.subCategory.name} Services</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600">
+                      Specialized in {vendor.vendorDetails.subCategory.name} services at {vendor.vendorDetails.shopAddress.location}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Quick Info Section */}
+              {activeTab === 'quickInfo' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-800">Quick Info</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 space-y-4">
+                      <div className="flex items-start gap-3">
+                        <Phone className="w-5 h-5 text-green-600 mt-1" />
+                        <div>
+                          <h3 className="font-semibold">Contact</h3>
+                          <p className="text-gray-600">{vendor.phone}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-blue-600 mt-1" />
+                        <div>
+                          <h3 className="font-semibold">Address</h3>
+                          <p className="text-gray-600">
+                            {vendor.address.street}, {vendor.address.city}<br />
+                            {vendor.address.state} - {vendor.address.pincode}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-purple-600 mt-1" />
+                        <div>
+                          <h3 className="font-semibold">Shop Location</h3>
+                          <p className="text-gray-600">
+                            {vendor.vendorDetails.shopAddress.addressLine1}<br />
+                            Near: {vendor.vendorDetails.shopAddress.nearbyLocation}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Services Section */}
+              {activeTab === 'services' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-800">Products & Services</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {products.map((product) => (
+                      <div key={product._id} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div className="flex items-start gap-4">
+                          {product.images && product.images[0] && (
+                            <img 
+                              src={product.images[0].url} 
+                              alt={product.images[0].alt} 
+                              className="w-24 h-24 object-cover rounded-lg"
+                            />
+                          )}
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg text-gray-900">{product.name}</h3>
+                            <p className="text-gray-600 mt-1">{product.description}</p>
+                            <div className="mt-3 flex items-center justify-between">
+                              <span className="text-lg font-bold text-green-600">₹{product.price.amount}</span>
+                              {product.price.isNegotiable && (
+                                <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+                                  Negotiable
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Photos Section */}
+              {activeTab === 'photos' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-800">Photos</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {vendor.vendorDetails.shopImages?.map((image, index) => (
+                      <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img 
+                          src={image} 
+                          alt={`${vendor.vendorDetails.shopName} - Image ${index + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  {(!vendor.vendorDetails.shopImages || vendor.vendorDetails.shopImages.length === 0) && (
+                    <div className="text-center py-12 bg-gray-50 rounded-xl">
+                      <p className="text-gray-600">No photos available yet.</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Reviews Section */}
+              {activeTab === 'reviews' && (
+                <div className="space-y-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Ratings & Reviews</h2>
+                    <div className="flex items-center gap-6 mb-6">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-gray-900">{ratingStats.averageRating.toFixed(1)}</div>
+                        <div className="flex items-center gap-1 my-2">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star 
+                              key={star}
+                              className={`w-5 h-5 ${
+                                star <= ratingStats.averageRating 
+                                  ? 'text-yellow-400 fill-current' 
+                                  : 'text-gray-300'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <p className="text-sm text-gray-600">{ratingStats.totalRatings} ratings</p>
+                      </div>
+                      <div className="flex-1">
+                        {Object.entries(ratingStats.ratingDistribution)
+                          .sort(([a], [b]) => Number(b) - Number(a))
+                          .map(([rating, count]) => (
+                            <div key={rating} className="flex items-center gap-2 mb-1">
+                              <span className="text-sm text-gray-600 w-3">{rating}</span>
+                              <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div 
+                                  className="h-full bg-yellow-400 rounded-full"
+                                  style={{ 
+                                    width: `${ratingStats.totalRatings > 0 
+                                      ? (count / ratingStats.totalRatings) * 100 
+                                      : 0}%` 
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="text-sm text-gray-600 w-8">{count}</span>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                    
+                    {recentReviews?.length > 0 ? (
+                      <div className="space-y-4">
+                        {recentReviews.map((review, index) => (
+                          <div key={index} className="border-t border-gray-100 pt-4">
+                            <div className="flex items-start justify-between mb-2">
+                              <div>
+                                <h3 className="font-semibold text-gray-900">{review.userName}</h3>
+                                <div className="flex items-center gap-1">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star 
+                                      key={i} 
+                                      className={`w-4 h-4 ${
+                                        i < review.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                                      }`} 
+                                    />
+                                  ))}
+                                </div>
+                              </div>
+                              <span className="text-sm text-gray-500">
+                                {new Date(review.date).toLocaleDateString()}
+                              </span>
+                            </div>
+                            <p className="text-gray-600">{review.comment}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center py-8">
+                        <Star className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+                        <p className="text-gray-600">No reviews yet. Be the first to review!</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Stats and Quick Actions */}
-          <div className="grid grid-cols-1 mt-4 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
-            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                  <Package className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Products</h3>
-                  <p className="text-xl md:text-2xl font-bold text-blue-600">{products.length}</p>
+          <div className="bg-white shadow-lg border border-gray-100 p-6 md:p-8 mb-2 relative overflow-hidden">
+            {/* Premium gradient border */}
+            {/* <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-black via-black to-black"></div> */}
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+              {/* Products Card */}
+              <div className="group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="p-4 rounded-2xl border-2 border-black">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                      <Package className="w-6 h-6 md:w-7 md:h-7 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-blue-900/60">Products</h3>
+                      <p className="text-2xl md:text-3xl font-bold text-blue-600">{products.length}</p>
+                      <p className="text-xs md:text-sm text-blue-900/50 mt-1">Available products</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm">Available products</p>
-            </div>
 
-            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                  <Star className="w-5 h-5 md:w-6 md:h-6 text-green-600 fill-current" />
-                </div>
-                <div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Rating</h3>
-                  <p className="text-xl md:text-2xl font-bold text-green-600">
-                    {ratingStats?.averageRating.toFixed(1) || '0.0'}
-                  </p>
+              {/* Rating Card */}
+              <div className="group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="p-4 rounded-2xl border-2 border-black ">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                      <Star className="w-6 h-6 md:w-7 md:h-7 text-green-600 fill-current" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-green-900/60">Rating</h3>
+                      <p className="text-2xl md:text-3xl font-bold text-green-600">
+                        {ratingStats?.averageRating.toFixed(1) || '0.0'}
+                      </p>
+                      <p className="text-xs md:text-sm text-green-900/50 mt-1">Average rating</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm">Average rating</p>
-            </div>
 
-            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                  <Calendar className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
-                </div>
-                <div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Since</h3>
-                  <p className="text-xl md:text-2xl font-bold text-purple-600">
-                    {new Date(vendor.createdAt).getFullYear()}
-                  </p>
+              {/* Since Card */}
+              <div className="group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="p-4 rounded-2xl border-2 border-black">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-purple-500/10 rounded-xl flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
+                      <Calendar className="w-6 h-6 md:w-7 md:h-7 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-purple-900/60">Since</h3>
+                      <p className="text-2xl md:text-3xl font-bold text-purple-600">
+                        {new Date(vendor.createdAt).getFullYear()}
+                      </p>
+                      <p className="text-xs md:text-sm text-purple-900/50 mt-1">Years in business</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm">Years in business</p>
-            </div>
 
-            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
-                </div>
-                <div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900">Views</h3>
-                  <p className="text-xl md:text-2xl font-bold text-orange-600">
-                    {products.reduce((acc, product) => acc + product.views, 0)}
-                  </p>
+              {/* Views Card */}
+              <div className="group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="p-4 rounded-2xl border-2 border-black">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-500/10 rounded-xl flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                      <TrendingUp className="w-6 h-6 md:w-7 md:h-7 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-orange-900/60">Views</h3>
+                      <p className="text-2xl md:text-3xl font-bold text-orange-600">
+                        {products.reduce((acc, product) => acc + product.views, 0)}
+                      </p>
+                      <p className="text-xs md:text-sm text-orange-900/50 mt-1">Total product views</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm">Total product views</p>
             </div>
           </div>
 
@@ -625,7 +913,7 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
           </div>
 
           {/* Awards and Certificates Section */}
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-6 md:mb-8">
+          <div className="bg-white md:rounded-3xl shadow-lg border border-gray-100 overflow-hidden mb-2 md:mb-4">
             <div className="p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Awards and Certificates</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -660,18 +948,7 @@ export default function VendorDetailPage({ params }: VendorDetailPageProps) {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Back Button */}
-          <div className="text-center mt-8 md:mt-12">
-            <Link 
-              href={`/subcategories/${vendor.vendorDetails.mainCategory._id}/${vendor.vendorDetails.subCategory.name.toLowerCase().replace(/\s+/g, '-')}`}
-              className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-semibold transition-colors text-sm md:text-base"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Vendors
-            </Link>
-          </div>
+          </div>          
         </div>
       </div>
     </div>
